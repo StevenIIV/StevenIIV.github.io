@@ -98,7 +98,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('/img/default.png')no-repeat center center;
+         style="background: url('/img/bg.png')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -224,7 +224,9 @@ feature map是每一个feature从原始图像中提取出来的”特征”。�
 e.g. Relu
 4.  pooling   池化层
 池化分为两种，Max Pooling 最大池化、Average Pooling平均池化。顾名思义，最大池化就是取最大值，平均池化就是取平均值。
-{width=”6.6929757217847765in”height=”1.8570111548556</div>
+
+原图片尺寸为9X9，在一系列的卷积、relu、池化操作后，得到尺寸被压缩为2X2的三张特征图。
+常见基</div>
         </div>
       </a>
 
@@ -512,7 +514,7 @@ More info: Deployment
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "one offer a day, keep reject away&nbsp;",
+        "I'm not a IT developer&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
