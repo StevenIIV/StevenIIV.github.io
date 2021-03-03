@@ -8,13 +8,13 @@
     <link href="undefined2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     <url>2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
     
-    <content type="html"><![CDATA[<p><img src="/2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image1.png" srcset="/img/loading.gif" alt></p><p>输入层—&gt; 隐藏层 H = X * W1+b1</p><p>隐藏从—&gt; 输出层 Y = H * W2+b2</p><p><img src="/2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image2.png" srcset="/img/loading.gif" alt></p><p>激活层（激活函数）</p><p>阶跃函数：当输入小于等于0时，输出0；当输入大于0时，输出1。</p><p>Sigmoid：当输入趋近于正无穷/负无穷时，输出无限接近于1/0。</p><p>ReLU：当输入小于0时，输出0；当输入大于0时，输出等于输入。</p><p>Tanh函数：将输入值压缩到 -1到1 的范围，解决了Sigmoid函数的缺陷</p><p><strong>softMax</strong></p><p>通过Softmax层之后，我们得到了I，II，III和IV这四个类别分别对应的概率</p><p>一种直观的解决方法，是用1减去Softmax输出的概率，比如1-90%=0.1。不过更为常用且巧妙的方法是，求对数的负数。概率越接近100%，该计算结果值越接近于0，说明结果越准确，该输出叫做[“]{dir=”rtl”}交叉熵损失（<strong>Cross<br>Entropy Error</strong>）”</p><p>反向传播 <strong>back propagation</strong></p><p>算出交叉熵损失后，就要开始反向传播了</p><p>就是一个参数优化的过程，优化对象就是网络中的所有W和b（因为其他所有参数都是确定的）。</p><p>梯度下降</p><p>然后反复迭代</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="/2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image1.png" srcset="/img/loading.gif" alt="alt"></p><p>输入层—&gt; 隐藏层 H = X * W1+b1</p><p>隐藏从—&gt; 输出层 Y = H * W2+b2</p><p><img src="/2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image2.png" srcset="/img/loading.gif" alt="alt"></p><p>激活层（激活函数）</p><p>阶跃函数：当输入小于等于0时，输出0；当输入大于0时，输出1。</p><p>Sigmoid：当输入趋近于正无穷/负无穷时，输出无限接近于1/0。</p><p>ReLU：当输入小于0时，输出0；当输入大于0时，输出等于输入。</p><p>Tanh函数：将输入值压缩到 -1到1 的范围，解决了Sigmoid函数的缺陷</p><p><strong>softMax</strong></p><p>通过Softmax层之后，我们得到了I，II，III和IV这四个类别分别对应的概率</p><p>一种直观的解决方法，是用1减去Softmax输出的概率，比如1-90%=0.1。不过更为常用且巧妙的方法是，求对数的负数。概率越接近100%，该计算结果值越接近于0，说明结果越准确，该输出叫做[“]{dir=”rtl”}交叉熵损失（<strong>Cross<br>Entropy Error</strong>）”</p><p>反向传播 <strong>back propagation</strong></p><p>算出交叉熵损失后，就要开始反向传播了</p><p>就是一个参数优化的过程，优化对象就是网络中的所有W和b（因为其他所有参数都是确定的）。</p><p>梯度下降</p><p>然后反复迭代</p>]]></content>
     
     
     
     <tags>
       
-      <tag>Machine Learning</tag>
+      <tag>Deep Learning</tag>
       
     </tags>
     
