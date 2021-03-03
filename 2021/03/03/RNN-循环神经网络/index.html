@@ -15,7 +15,7 @@
   <meta name="description" content="guy">
   <meta name="author" content="StevenIIV">
   <meta name="keywords" content="">
-  <title>Category - Deep Learning ~ StevenIIV&#39;s blog</title>
+  <title>RNN 循环神经网络 ~ StevenIIV&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -38,7 +38,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -109,6 +109,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Wednesday, March 3rd 2021, 8:42 pm
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    679 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -119,48 +154,130 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">3 posts in total.</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">RNN 循环神经网络</span>
-      <span style="float: right;">03-03</span>
-    </a>
-  
-    
-    <a href="/2021/03/03/CNN-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">CNN 卷积神经网络</span>
-      <span style="float: right;">03-03</span>
-    </a>
-  
-    
-    <a href="/2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">NN 神经网络</span>
-      <span style="float: right;">03-03</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p><strong>RNN</strong><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image1.png" srcset="/img/loading.gif" alt></p>
+<img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image2.png" srcset="/img/loading.gif" style="zoom:50%;">
 
+<p>Xt 是输入的词向量</p>
+<p>其中Ot 代表t时刻的输出</p>
+<p>St代表t时刻的隐藏层的值</p>
+<p>在整个训练过程中，每一时刻所用的都是同样的W</p>
+<p><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image3.png" srcset="/img/loading.gif" alt></p>
+<p>梯度消失 <strong>vanishing gradient problem</strong></p>
+<p>短期记忆问题是由梯度消失问题引起的==&gt;BP</p>
+<p>Reason:<br>因为反向传播过程中对梯度的求解会产生sigmoid导数和参数的连乘，sigmoid导数的最大值为0.25，权重一般初始都在0，1之间，乘积小于1，多层的话就会有多个小于1的值连乘，导致靠近输入层的梯度几乎为0</p>
+<p>这会导致渐变在向后传播时呈指数级收缩。由于梯度极小，内部权重几乎没有调整，因此较早的层无法进行任何学习。这就是消失的梯度问题。</p>
+<p>梯度爆炸</p>
+<p>梯度爆炸是也是同样的原因，只是如果初始权重大于1，或者更大一些，多个大于1的值连乘，将会很大或溢出，导致梯度更新过大，模型无法收敛。</p>
+<p>LSTM</p>
+<p><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image4.png" srcset="/img/loading.gif" alt></p>
+<p><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image5.png" srcset="/img/loading.gif" alt></p>
+<p>主线/长期记忆 Ct-1 Ct</p>
+<p>1）遗忘门</p>
+<p><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image6.png" srcset="/img/loading.gif" alt></p>
+<p>Sigmoid，输入h和x，输出0-1值，代表遗忘程度</p>
+<p>2）输入门</p>
+<p>Sigmoid，然后，一个tanh层为新的候选值创建一个向量c，这些值能够加入state中。下一步，我们要将这两个部分合并以创建对state的更新。</p>
+<p><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image7.png" srcset="/img/loading.gif" alt></p>
+<p>3）输出门</p>
+<p>1.首先运行一个sigmoid层，这个也就是输出门，以决定cell<br>state中的那个部分是我们将要输出的</p>
+<p>2.把cell state放进tanh (-1,1)，最后将它与sigmoid门的输出相乘</p>
+<p><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image8.png" srcset="/img/loading.gif" alt></p>
+<p>注意点：</p>
+<ol>
+<li><p>cell 的状态是一个向量，是有多个值的</p>
+</li>
+<li><p>上一次的状态 h(t-1)是怎么和下一次的输入 x(t)<br>结合（concat）起来的，这也是很多资料没有明白讲的地方，也很简单，concat，<br>直白的说就是把二者直接拼起来</p>
+</li>
+<li><p>cell的权重是共享的，这是什么意思呢？这是指这张图片上有三个绿色的大框，代表三个<br>cell 对吧，但是实际上，它只是代表了一个 cell 在不同时序时候的状态</p>
+</li>
+<li><p>cell 最上面的一条线的状态即 s(t) 代表了长时记忆，而下面的 h(t)则代表了工作记忆或短时记忆</p>
+</li>
+</ol>
+<p><strong>BiRNN</strong><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image9.png" srcset="/img/loading.gif" alt>{width=”2.9515212160979876in”<br>height=”1.9796237970253718in”}</p>
+<p>之前提过的RNN结构都是单向的，但实际问题中还存在不仅依赖于之前的序列还依赖于之后的序列进行预测的问题前向的参数与后向的参数是不共享的</p>
+<p><strong>BiLSTM</strong><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/text.png" srcset="/img/loading.gif" style="zoom: 50%;"></p>
+<p><img src="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image10.png" srcset="/img/loading.gif" alt></p>
 
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/Deep%20Learning">Deep Learning</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '408ac4a4a05f1147bd9f',
+      clientSecret: '259e79647fc655e0be7f76107a84a6b39d211313',
+      repo: 'blogtalk',
+      owner: 'StevenIIV',
+      admin: 'StevenIIV',
+      id: md5(location.pathname),
+      language: 'en',
+      perPage: 15,
+      pagerDirection: 'last',
+      createIssueManually: 'true',
+      distractionFreeMode: 'false'
+    });
+
+    gitalk.render('gitalk-container')
+  </script>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -232,6 +349,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -290,7 +412,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Category - Deep Learning&nbsp;",
+        "RNN 循环神经网络&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

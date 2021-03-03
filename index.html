@@ -136,6 +136,116 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_self">
+          <img src="/img/RNN.png" srcset="/img/loading.gif" alt="RNN 循环神经网络" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2021/03/03/RNN-%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+        <p class="h4 index-header">RNN 循环神经网络</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">RNN
+
+
+Xt 是输入的词向量
+其中Ot 代表t时刻的输出
+St代表t时刻的隐藏层的值
+在整个训练过程中，每一时刻所用的都是同样的W
+
+梯度消失 vanishing gradient problem
+短期记忆问题是由梯度消失问题引起的==&gt;BP
+Reason:因为反向传播过程中对梯度的求解会产生sigmoid导数和参数的连乘，sigmoid导数的最大值为0.25，权重一般初始都在0，1之间，乘积小于1，多层的话就会有多个小于1的值连乘，导致靠近输入层的梯度几乎为0
+这会导致渐变在向后传播时呈指数级收缩。由于梯度极小，内部权重几乎没有调整，因此较早的层无法进行任何学习。这就是消失的梯度问题。
+梯度爆炸
+梯度爆炸是也是同样的原因，只是如果初始权重大于1，或者更大一些，多个大于1的值连乘，将会很大或溢出，导致梯度更新过大，模型无法收敛。
+LSTM
+
+
+主线/长期记忆 Ct-1 Ct
+1）遗忘门
+
+Sigmoid，输入h和x，输出0-1值，代表遗忘程度
+2）输入门
+Sigmoid，然后，一个tanh层为新的候选值创建一个向量c，这些值能够加入state中。下一步，我们要将这两个部分合并</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2021-03-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Deep%20Learning">Deep Learning</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2021/03/03/CNN-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_self">
+          <img src="/img/CNN.png" srcset="/img/loading.gif" alt="CNN 卷积神经网络" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2021/03/03/CNN-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+        <p class="h4 index-header">CNN 卷积神经网络</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1.从标准图中提取出特征feature
+也被称为卷积核 filter 一般3*3 5*5
+{width=”5.855312773403325in”height=”4.908896544181977in”}
+2. 卷积运算
+1）卷积核滑动算乘积
+2）除数量
+得到 feature map （特征图）
+步长 stride=1
+h[u,v]表示的是卷积核
+F表示的是输入图像
+下面矩阵算的都是坐标
+feature map是每一个feature从原始图像中提取出来的”特征”。其中的值，越接近为1表示对应位置和feature的匹配越完整，越是接近-1，表示对应位置和feature的反面匹配越完整，而值接近0的表示对应位置没有任何匹配或者说没有什么关联。
+一个feature作用于图片产生一张featuremap，对这张X图来说，我们用的是3个feature，因此最终产生3个 feature map。
+3. 激活层
+e.g. Relu
+4.  pooling   池化层
+池化分为两种，Max Pooling 最大池化、Average Pooling平均池化。顾名思义，最大池化就是取最大值，平均池化就是取</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2021-03-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Deep%20Learning">Deep Learning</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_self">
           <img src="/img/NN.png" srcset="/img/loading.gif" alt="NN 神经网络" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
