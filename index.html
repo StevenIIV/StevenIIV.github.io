@@ -135,6 +135,12 @@
   <div class="row mb-4 mx-auto">
     
     
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" target="_self">
+          <img src="/img/NN.png" srcset="/img/loading.gif" alt="NN 神经网络" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
     <div class="col-12 col-md-8 m-auto">
       <a href="/2021/03/03/NN-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
         <p class="h4 index-header">NN 神经网络</p>
@@ -143,10 +149,10 @@
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">{width=”5.634772528433945in”height=”3.585044838145232in”}
+          <div class="index-text mb-1">
 输入层—&gt; 隐藏层 H = X * W1+b1
 隐藏从—&gt; 输出层 Y = H * W2+b2
-{width=”6.518366141732283in”height=”1.4880336832895888in”}
+
 激活层（激活函数）
 阶跃函数：当输入小于等于0时，输出0；当输入大于0时，输出1。
 Sigmoid：当输入趋近于正无穷/负无穷时，输出无限接近于1/0。
@@ -154,7 +160,13 @@ ReLU：当输入小于0时，输出0；当输入大于0时，输出等于输入�
 Tanh函数：将输入值压缩到 -1到1 的范围，解决了Sigmoid函数的缺陷
 softMax
 通过Softmax层之后，我们得到了I，II，III和IV这四个类别分别对应的概率
-一种直观的解决方法，是用1减去Softmax输出的概率，比如1-90%=0.1。不过更为常用且巧妙的方法是，求对数的负数。概率越接近100%，该计算结果值越接近于0，说明结果越准确，该输出叫做[“]{dir=”rtl”}交叉熵损失（CrossEntropy </div>
+一种直观的解决方法，是用1减去Softmax输出的概率，比如1-90%=0.1。不过更为常用且巧妙的方法是，求对数的负数。概率越接近100%，该计算结果值越接近于0，说明结果越准确，该输出叫做[“]{dir=”rtl”}交叉熵损失（CrossEntropy Error）”
+反向传播 back propagation
+算出交叉熵损失后，就要开始反向传播了
+就是一个参数优化的过程，优化对象就是网络中的所有W和b（因为其他所有参数都是确定的）。
+梯度下降
+然后反复迭代
+</div>
         </div>
       </a>
 
